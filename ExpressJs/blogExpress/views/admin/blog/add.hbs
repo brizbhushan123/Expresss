@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Blog form</h4>
+                <p class="card-description"> Create your blog here </p>
+                <div class="alert alert-danger" role="alert" style="display: {{#if data.sqlMessage}}block{{else}}none{{/if}} ">
+                    <strong> {{ data.errno }}</strong> {{ data.sqlMessage }}
+                </div> 
+                <form class="forms-sample" method="POST" action="create" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                        <span class="text-danger">{{errors.title}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description"
+                            placeholder="Description"></textarea>
+                        <span class="text-danger">{{errors.description}}</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Title</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+
+                    <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input"> Remember me </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-dark" onclick="window.reload();">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
